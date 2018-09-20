@@ -12,6 +12,20 @@ import time
 
 # In[ ]:
 
+def insertion_sort(A, low, hi):
+    for i in range(low, hi):
+        curNum = A[i]
+        k = 0
+        for j in range(i-1, -2, -1):
+            k = j
+            if A[j] > curNum:
+                A[j+1] = A[j]
+            else:
+                break
+        A[k+1] = curNum
+
+
+
 
 def merge_sort(A):
     merge_sort2(A, 0, len(A)-1)
