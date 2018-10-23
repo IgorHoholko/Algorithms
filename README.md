@@ -27,7 +27,7 @@
     + realise Hash Table with with Open Addressing collision resolution method;
     + realise Hash Table with with Chains collision resolution method;
     
-* ### ([Lab 4 - Graf](https://github.com/IgorHoholko/Algorithms/tree/master/lab_3))
+* ### ([Lab 4 - Graf](https://github.com/IgorHoholko/Algorithms/tree/master/lab_4))
     **Task:** 
     + realise the Graf class;
     + realise the BFS algorithm (show in what component of the graf a point lies;
