@@ -10,7 +10,7 @@
     **Task:** 
     + realise the QuickSort;
     + realise the MergeSort;
-    + find the best threshold QuickSort with MergeSort works faster than QuickSort only;
+    + find the best threshold at which QuickSort with MergeSort works faster than QuickSort only;
         
 * ### [Lab 2_1 - Binary Search & Interpolation Search ](https://github.com/IgorHoholko/Algorithms/tree/master/lab_2_1)
     **Task:** 
