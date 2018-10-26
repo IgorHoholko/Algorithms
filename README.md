@@ -27,11 +27,11 @@
     + realise Hash Table with with Open Addressing collision resolution method;
     + realise Hash Table with with Chains collision resolution method;
     
-* ### [Lab 4 - Graf](https://github.com/IgorHoholko/Algorithms/tree/master/lab_4)
+* ### [Lab 4 - Graph](https://github.com/IgorHoholko/Algorithms/tree/master/lab_4)
     **Task:** 
-    + realise the Graf class;
-    + realise the BFS algorithm (show in what component of the graf a point lies;
-    + realise the algorithm of the Euler cycle check in the graf;
+    + realise the Graph class;
+    + realise the BFS algorithm (show in what component of the graph a point lies;
+    + realise the algorithm of the Euler path check in the graph;
     + realise the algorithm of the bipartite check in the;
     + *visualise* (it's not necessary)
     
