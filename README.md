@@ -30,8 +30,16 @@
 * ### [Lab 4 - Graph](https://github.com/IgorHoholko/Algorithms/tree/master/lab_4)
     **Task:** 
     + realise the Graph class;
-    + realise the BFS algorithm (show in what component of the graph a point lies;
+    + realise the BFS algorithm (show in what component of the graph a point lies);
     + realise the algorithm of the Euler path check in the graph;
-    + realise the algorithm of the bipartite check in the;
+    + realise the algorithm of the bipartite check in the graph;
     + *visualise* (it's not necessary)
     
+* ### [Lab 5 - Weighted Graph](https://github.com/IgorHoholko/Algorithms/tree/master/lab_5)
+    **Task:** 
+    + add the possibility to add weights in the graph from the previous task;
+    + realise Gale-Shapley algorithm;
+    + realise the Prime algorithm (build a minimum weight spanner);
+    + realise the Kruskal algorithm (build a minimum weight spanner using);
+    + construct the graph that is the result of the Prime and Kraskal algorithms combination;
+    + *visualise* (it's not necessary)
