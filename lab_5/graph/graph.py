@@ -48,15 +48,16 @@ class Graph:
             self.AM = np.zeros((1, 1)) 
     
     
-    def _add_adj_to_matrix(self, v, other_v):
+    def _add_adj(self, v, other_v, value = 1):
         "Add the adjacency between the vertex 'v' and the vertices(vertex) 'other_v' "
-        self.AM[v, other_v] = 1
-        self.AM[other_v, v] = 1
+        self.AM[v, other_v] = value
+        self.AM[other_v, v] = value
     
-    def _del_adj_from_matrix(self, v, other_v):
+    def _del_adj(self, v, other_v):
         "Delete the adjacency between the vertex 'v' and the vertices(vertex) 'other_v' "
         self.AM[v, other_v] = 0
         self.AM[other_v, v] = 0
+        
         
     def _keys_to_indexis(self, keys):
         "Transform vertices' keys to the vertices' idx"
@@ -87,7 +88,7 @@ class Graph:
         self._creatr_idx_dict_from_keys_dict()
             
         
-    def _del_v_from_matrix(self, v):
+    def _del_v(self, v):
         "Delete the vertex v from the graph"
         #"Delete all connections of the point v with other ones"
         self.AM[v, :] = 0
@@ -174,7 +175,7 @@ class Graph:
             idxs_adj = self._keys_to_indexis(data[key])
             
             #add the edges to the storage objects
-            self._add_adj_to_matrix(idx, idxs_adj)
+            self._add_adj(idx, idxs_adj)
     
     
     def remove_v(self, *args):
@@ -195,16 +196,29 @@ class Graph:
             self._update_dicts(v_main)
             
             #delete vertex from the adjacency matrix
-            self._del_v_from_matrix(v_main)
+            self._del_v(v_main)
         
             
-    
-           
+    def set_weights(self, points, w):
+        """ 
+        Add the weight (w) the couple of the points.
         
-    def set_dictance(self, points, dictances):
-        pass
+        Parameters
+        ----------
+            points --- array
+                Couple of the points (v1, v2).
+            w --- value/array
+                Weight between the couple of the points.
+        """ 
+        try:
+            for i in range(len(w)):
+                v1, v2 = self._keys_to_indexis(points[i])
+                self._add_adj(v1, v2, w[i])
+        except:
+            v1, v2 = self._keys_to_indexis(points)
+            self._add_adj(v1, v2, w)
     
-    
+            
     def remove_adj(self, data):
         """ 
         Remove the adjacency from the graph.
@@ -224,8 +238,10 @@ class Graph:
             idxs_adj = self._keys_to_indexis(data[key])
             
             #delete the edges from the storage objects
-            self._del_adj_from_matrix(idx, idxs_adj)
+            self._del_adj(idx, idxs_adj)
     
+    def remove_adj_completely(self):
+        self.AM = np.zeros_like(self.AM)
     
     
     
@@ -245,8 +261,9 @@ class Graph:
         Draw the graph.
         """
         
-        K=nx.Graph(self.AM)
-        nx.draw(K, labels = self.idx_keys,\
+        G=nx.Graph(self.AM)
+#         labels = nx.get_edge_attributes(G,'weight')
+        nx.draw(G, labels = self.idx_keys, \
                 font_size= self.params_drawing.get('font_size'), \
                 node_size=self.params_drawing.get('node_size'),  \
                 node_color=self.params_drawing.get('node_color'),\

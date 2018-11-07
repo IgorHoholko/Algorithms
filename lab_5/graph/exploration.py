@@ -51,14 +51,6 @@ def get_Euler_path(G, key = None):
 
 
 
-
-
-
-
-
-
-
-
 def bipartite(G):
     """
     Get componets of the bipartite graph if it is.
@@ -108,13 +100,6 @@ def bipartite(G):
             
     
     return components
-    
-
-
-
-
-
-
 
 
 
