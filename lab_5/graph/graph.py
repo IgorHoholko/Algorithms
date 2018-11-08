@@ -2,6 +2,7 @@ import numpy as np
 import copy
 import networkx as nx
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class Graph:
     def __init__(self, params_drawing = {}, storage_method = 'list'):
@@ -244,10 +245,20 @@ class Graph:
         self.AM = np.zeros_like(self.AM)
     
     
+    def print_matrix(self):
+        """
+        Print Adj matrix
+        """
+        df = pd.DataFrame(self.AM)
+
+        df.rename(self.idx_keys, axis=0, inplace=True)
+        df.rename(self.idx_keys, axis=1, inplace=True)
+        return df
+    
     
     def print(self):
         """ 
-        Print the incidence list.
+        Print incidence list.
         """
         
         self._matrix_to_list()
