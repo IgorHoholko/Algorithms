@@ -39,7 +39,7 @@
     **Task:** 
     + add the possibility to add weights in the graph from the previous task;
     + realise Gale-Shapley algorithm;
-    + realise the Prime algorithm (build a minimum weight spanner);
-    + realise the Kruskal algorithm (build a minimum weight spanner using);
+    + realise the Prime algorithm (build a Minimum Spanning Tree);
+    + realise the Kruskal algorithm (build a Minimum Spanning Tree);
     + construct the graph that is the result of the Prime and Kraskal algorithms combination;
     + *visualise* (it's not necessary)
