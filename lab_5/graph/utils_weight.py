@@ -1,5 +1,33 @@
 import copy
+from .graph import Graph
 
+
+def get_merge(A, B):
+    """
+    Get merge of the A and B graphs.
+
+    Parameters
+    -------
+        A : object
+            First object of the Graph's class.
+        B: string, int
+            Second object of the Graph's class.
+        
+    Returns
+    -------
+        Graph : object
+            Graph object - merge of the A and B graphs.
+    """
+    matr_intersect = copy.deepcopy(A.AM)
+
+    dif = abs(A.AM - B.AM)
+    matr_intersect[dif.nonzero()] = 0
+    
+    matr_intersect += dif
+    
+    return Graph(matr_intersect)
+    
+    
 
 def get_min_weight_spanner(G, mod = "P"):
     """
@@ -16,6 +44,11 @@ def get_min_weight_spanner(G, mod = "P"):
             ===   =======
             'P'    Prime
             'K'    Kruskal
+
+    Returns
+    -------
+        path : object
+            Graph object.
         """
     if mod == 'P':
         return _prim(G)

@@ -5,13 +5,16 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 class Graph:
-    def __init__(self, params_drawing = {}, storage_method = 'list'):
+    def __init__(self, AM = None, params_drawing = {}, storage_method = 'list'):
         """
         Parameters
         ----------
+            AM : array (N,N)
+                Adjacency Matrix of a graph.
+
             params_drawing : dict
                 The dict with params for drawing.
-                'font_size' --- 'node_size' --- 'node_color' --- 'font_color' --- 'font_weight'
+                'node_color' --- 'font_color' --- 'font_weight'
                 
             storage_method : optional
                 Variable to choose the method of the vertices' storing.
@@ -26,15 +29,23 @@ class Graph:
         self.AM = None         # adjacency Matrix
         self.keys_idx = dict()
         self.idx_keys = dict()  
-        self.params_drawing = {'font_size': 15, 'node_size' : 1000, 'node_color' : 'black',\
-                               'font_color' : 'w', 'font_weight': 'bold'}
+        self.params_drawing = {'node_color' : 'black', 'font_color' : 'w', 'font_weight': 'bold'}
         self.m = 0    #num of the edges
         self.n = 0    #num of the vertices
         
+        
+        self.__initialize_graph(AM)        
         self.params_drawing.update(params_drawing)
         print(self.params_drawing)
       
     
+    def __initialize_graph(self, AM):
+        if hasattr(AM, "__len__"):
+            self.AM = np.array(AM)
+            self.n = self.AM.shape[0]
+            self.keys_idx = {i+1:i for i in range(self.n)}
+            self.idx_keys = {i:i+1 for i in range(self.n)}
+        
     def _addTo_graph_list(self):
         "Expand the adjacency list when adding a point"
         self.list.append([])
@@ -275,8 +286,6 @@ class Graph:
         G=nx.Graph(self.AM)
 #         labels = nx.get_edge_attributes(G,'weight')
         nx.draw(G, labels = self.idx_keys, \
-                font_size= self.params_drawing.get('font_size'), \
-                node_size=self.params_drawing.get('node_size'),  \
                 node_color=self.params_drawing.get('node_color'),\
                 font_color=self.params_drawing.get('font_color'),\
                 font_weight=self.params_drawing.get('font_weight'))

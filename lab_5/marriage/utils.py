@@ -62,16 +62,16 @@ def marriage_speed_desire(W, M, MAX = 9999):
 
 
 def get_description(men, women, couples):
-    speed = 0
-    desire = 0
+    time = 0
+    discontent = 0
     
     for i, j in couples.items():
-        desire += list(men[i]).index(j)
-        speed += women[i, j]
+        discontent += list(men[i]).index(j)
+        time += women[i, j]
         
-    max_speed = np.sum(women.min(axis=1))
+    min_time = np.sum(women.min(axis=1))
         
-    print("desire: ", desire)
-    print("speed: ", speed)
-    print("max_speed: ", max_speed)
-    print("max_speed - speed = ", speed - max_speed)
+    print("discontent: ", discontent)
+    print("time: ", time)
+    print("min_time: ", min_time)
+    print("min_time- time = ", time - min_time)
