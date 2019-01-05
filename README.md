@@ -33,7 +33,7 @@
     + realise the Binary Search Tree with the left and right rotation;
     + come up with visualisation of the tree;
     
-* ### [Lab 3 - Hash Table with Open Addressing and Chains methods](https://github.com/IgorHoholko/Algorithms/tree/master/Hash_tables)
+* ### [Hash Table with Open Addressing and Chains methods](https://github.com/IgorHoholko/Algorithms/tree/master/Hash_tables)
     **Task:** 
     + realise Hash Table with with Open Addressing collision resolution method;
     + realise Hash Table with with Chains collision resolution method;
